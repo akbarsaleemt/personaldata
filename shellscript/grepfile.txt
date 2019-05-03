@@ -1,0 +1,300 @@
+1.sh:function fun()
+1.sh:{
+1.sh:
+1.sh:  path_var=($PWD)
+1.sh:  echo $path_var
+1.sh:#  return $path_var
+1.sh:}
+1.sh:
+1.sh:var=$(fun)
+1.sh:echo $!
+1.sh:echo "my path is $var"
+arithmaticoperations.sh:#! /bin/bash
+arithmaticoperations.sh:
+arithmaticoperations.sh:a=10
+arithmaticoperations.sh:b=20
+arithmaticoperations.sh:
+arithmaticoperations.sh:val=`expr $a + $b`
+arithmaticoperations.sh:echo "a + b : $val"
+arithmaticoperations.sh:echo enter a, b values
+arithmaticoperations.sh:read a
+arithmaticoperations.sh:read b
+arithmaticoperations.sh:
+arithmaticoperations.sh:echo sum: `expr $a + $b`
+arithmaticoperations.sh:s=`expr $a - $b`
+arithmaticoperations.sh:echo s: $s
+arithmaticoperations.sh:
+arithmaticoperations.sh:#mul = $(( a \* b ))
+arithmaticoperations.sh:echo mul = $(( a*b ))
+arithmaticoperations.sh: mul=$(( a*b ))
+arithmaticoperations.sh:echo mul2 : $mul
+arithmaticoperations.sh: #div =-e $(( a/b ))
+arithmaticoperations.sh:echo div  $(( a/b ))
+arithoperations2.sh:#! /bin/bash
+arithoperations2.sh:echo enter values for arithmatic operations
+arithoperations2.sh:read a
+arithoperations2.sh:read b
+arithoperations2.sh:echo a=$a b=$b
+arithoperations2.sh:echo sum of a+b is:
+arithoperations2.sh:echo `expr $a + $b`
+arithoperations2.sh:echo difference of a, b is :
+arithoperations2.sh: if [ $a -gt $b ]
+arithoperations2.sh: then
+arithoperations2.sh:   echo `expr $a - $b`
+arithoperations2.sh: else
+arithoperations2.sh:   echo `expr $b - $a`
+arithoperations2.sh: fi
+arithoperations2.sh:echo multiplication of a, b is
+arithoperations2.sh:echo `expr $a \* $b`
+arithoperations2.sh:echo division of a, b is
+arithoperations2.sh:echo `expr $a \/ $b`
+arithoperations2.sh:echo modulo division of a, b is
+arithoperations2.sh:echo `expr $a \% $b`
+arithoperations2.sh:
+arrays.sh:#! /bin/bash
+arrays.sh:echo ${arr[*]}
+arrays.sh:echo ${#arr[*]}
+arrays.sh:echo ${arr[0]}
+arrays.sh:echo ${arr[1]:2}
+arrays.sh:echo ${arr[@]:1:2}
+arrays.sh:echo ${arr[@]/*[em]*/}
+arrays.sh:
+base3.sh:#!/bin/sh
+base3.sh:<< comment
+base3.sh:echo "enter name"
+base3.sh:read name
+base3.sh:echo "name is $name"
+base3.sh:comment
+base3.sh:echo "enter name"
+base3.sh:
+basic2.sh:#!/bin/sh
+basic2.sh:echo "enter data"
+basic2.sh:read data
+basic2.sh:echo "entered data is $data"
+basic2.sh:exit 0
+basic2.sh:
+basic3.sh:#! /bin/bash
+basic3.sh:name="hello world"
+basic3.sh:echo name
+basic3.sh:echo $name
+basic3.sh:unset name
+basic3.sh:echo $name
+basic3.sh:
+basic.sh:#! /bin/sh
+basic.sh:
+basic.sh:echo "what's your name?"
+basic.sh:read PERSON
+basic.sh:echo "Hello,$PERSON"
+basic.sh:exit 0
+case.sh:case $1 in 
+case.sh:  car) echo $1 for rent;;
+case.sh:  jeep) echo $1 for rent;;
+case.sh:  *) echo dont have to give rent;;
+case.sh: esac 
+comands.sh:echo pwd output
+comands.sh:pwd
+comands.sh:echo ls output
+comands.sh:ls
+comands.sh:echo ls la  output
+comands.sh:ls -la
+comands.sh:echo wc output
+comands.sh:wc *.sh 
+datetime.sh:#! /bin/sh
+datetime.sh:DATE=`date`
+datetime.sh:echo "date is $DATE"
+factorial.sh:echo enter input number to find factorial
+factorial.sh:read a
+factorial.sh:fact=1
+factorial.sh:for (( i=a; i>0; i=i-1 ))
+factorial.sh:do
+factorial.sh:  fact=`expr $fact \* $i`
+factorial.sh:done
+factorial.sh:echo $fact
+factorial.sh:
+fibnaciseries.sh:#! /bin/bash
+fibnaciseries.sh:echo enter number for fibnaci
+fibnaciseries.sh:read num
+fibnaciseries.sh:i=0
+fibnaciseries.sh:num1=0
+fibnaciseries.sh:num2=1
+fibnaciseries.sh:new=0
+fibnaciseries.sh:while [ $i -lt $num ]
+fibnaciseries.sh:do
+fibnaciseries.sh:  echo $num1
+fibnaciseries.sh:  new=`expr $num1 + $num2`
+fibnaciseries.sh:  num1=$num2
+fibnaciseries.sh:  num2=$new
+fibnaciseries.sh:  i=`expr $i + 1`
+fibnaciseries.sh:done
+fibnaciseries.sh:
+fibnaciseries.sh:
+fileoper.sh:echo enter filename
+fileoper.sh:read file
+fileoper.sh:echo $file
+fileoper.sh:echo hello world>$file
+fileoper.sh:cat $file
+fileoper.sh:echo sdafkjasdflasdfhjsdfsklf >$file
+fileoper.sh:cat $file
+fileoper.sh:echo apending dtat to file >>$file
+fileoper.sh:#cat $file
+fileoper.sh:echo while loop for data printing
+fileoper.sh:while read line
+fileoper.sh:do 
+fileoper.sh:  echo $line
+fileoper.sh:done <$file
+fileoper.sh:
+forloop2.sh:#! /bin/bash
+forloop2.sh:echo enter range
+forloop2.sh:read num
+forloop2.sh:for (( i=0; i<$num; i=i+1))
+forloop2.sh:do
+forloop2.sh:  echo $i
+forloop2.sh:done
+forloop2.sh:
+forloop.sh:#! /bin/bash
+forloop.sh:echo enter input range
+forloop.sh:read n
+forloop.sh:for ((i=1; i<=$n; i=i+1))
+forloop.sh:do 
+forloop.sh:      echo $i
+forloop.sh:      echo sqrt($n)
+forloop.sh:done
+forloop.sh:echo 2nd for loop
+forloop.sh:for i in {0..100}
+forloop.sh:do
+forloop.sh:
+forloop.sh:echo $i
+forloop.sh:done
+loops.sh:#! /bin/bash
+loops.sh:echo forloop
+loops.sh:for i in {1..100}
+loops.sh:do
+loops.sh:  echo $i
+loops.sh:done
+loops.sh:echo whilelopp
+loops.sh:i=0
+loops.sh:while [ $i -lt 100 ]
+loops.sh:do
+loops.sh: if [ `expr $i \% 2` -eq 1 ] 
+loops.sh: then
+loops.sh:  echo $i
+loops.sh:fi
+loops.sh:i=`expr $i + 1`
+loops.sh:done
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+loops.sh:
+primenumber.sh:#! /bin/bash
+primenumber.sh:echo enter number for range of prime numbers
+primenumber.sh:read num
+primenumber.sh:i=3
+primenumber.sh:while [ $i -lt $num ]
+primenumber.sh:do
+primenumber.sh:  status=1
+primenumber.sh:  j=0
+primenumber.sh:  for (( $j; $j<=(i/2); j=j+1 ))
+primenumber.sh:  do
+primenumber.sh:    x=`expr $j + 2`
+primenumber.sh:    if [ `expr $i \% $x` -eq 0 ]
+primenumber.sh:     then
+primenumber.sh:      status=0
+primenumber.sh:      break
+primenumber.sh:     fi
+primenumber.sh:  done
+primenumber.sh:  if [ $status -eq 1 ]
+primenumber.sh:  then 
+primenumber.sh:    echo $i
+primenumber.sh:  fi
+primenumber.sh:  i=`expr $i + 1`
+primenumber.sh:done
+primenumber.sh:
+primenumber.sh:
+readonlyvar.sh:readonly name
+readonlyvar.sh:echo enter name
+readonlyvar.sh:read name
+readonlyvar.sh:echo  name is $name
+readonlyvar.sh:
+readonlyvar.sh:name2="hello world"
+readonlyvar.sh:echo name2 is $name2
+readonlyvar.sh:unset name2
+readonlyvar.sh:
+readonlyvar.sh:echo name2 is $name2
+readonlyvar.sh:echo $$
+readonlyvar.sh:echo $0
+var1.sh:echo variable 1
+var1.sh:var1=199999
+var1.sh:echo infile1 $var1
+var1.sh:echo infile1 var2 is global variable $var2
+var2.sh:echo variable 2
+var2.sh:export var2=2222229
+var2.sh:echo infile1 $var2
+var2.sh:. ./var1.sh 
+var2.sh:echo infile2 var1 $var1
+var2.sh:
+var2.sh:
+variableusage.sh:echo variable calling
+variableusage.sh:. ./fileoper.sh
+variableusage.sh:echo $file
+while2.sh:#! /bin/bash
+while2.sh:n=10
+while2.sh:i=0
+while2.sh:echo $n $i
+while2.sh:while [ $i -lt $n ]
+while2.sh:do
+while2.sh:  echo $i
+while2.sh:  i=`expr $i + 1`
+while2.sh:done
+while2.sh:
+while2.sh:
+while2.sh:
+whilelop.sh:#! /bin/bash
+whilelop.sh:echo enter range
+whilelop.sh:read num
+whilelop.sh:i=0
+whilelop.sh:while [ $i -le $num ]
+whilelop.sh:do
+whilelop.sh:  echo $i
+whilelop.sh:  i=`expr $i + 1`
+whilelop.sh:done
+whilelop.sh:

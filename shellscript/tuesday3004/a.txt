@@ -1,0 +1,2 @@
+/home/takkaakb/nullptr.c
+/home/takkaakb/akbar/shellscript/tuesday3004/nullptr.c

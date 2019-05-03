@@ -1,0 +1,408 @@
+ grep --help
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i 'hello world' menu.h main.c
+
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+  -s, --no-messages         suppress error messages
+  -v, --invert-match        select non-matching lines
+  -V, --version             display version information and exit
+      --help                display this help text and exit
+
+Output control:
+  -m, --max-count=NUM       stop after NUM matches
+  -b, --byte-offset         print the byte offset with output lines
+  -n, --line-number         print line number with output lines
+      --line-buffered       flush output on every line
+  -H, --with-filename       print the file name for each match
+  -h, --no-filename         suppress the file name prefix on output
+      --label=LABEL         use LABEL as the standard input file name prefix
+  -o, --only-matching       show only the part of a line matching PATTERN
+  -q, --quiet, --silent     suppress all normal output
+      --binary-files=TYPE   assume that binary files are TYPE;
+                            TYPE is 'binary', 'text', or 'without-match'
+  -a, --text                equivalent to --binary-files=text
+  -I                        equivalent to --binary-files=without-match
+  -d, --directories=ACTION  how to handle directories;
+                            ACTION is 'read', 'recurse', or 'skip'
+  -D, --devices=ACTION      how to handle devices, FIFOs and sockets;
+                            ACTION is 'read' or 'skip'
+  -r, --recursive           like --directories=recurse
+  -R, --dereference-recursive  likewise, but follow all symlinks
+      --include=FILE_PATTERN  search only files that match FILE_PATTERN
+      --exclude=FILE_PATTERN  skip files and directories matching FILE_PATTERN
+      --exclude-from=FILE   skip files matching any file pattern from FILE
+      --exclude-dir=PATTERN  directories that match PATTERN will be skipped.
+  -L, --files-without-match  print only names of FILEs containing no match
+  -l, --files-with-matches  print only names of FILEs containing matches
+  -c, --count               print only a count of matching lines per FILE
+  -T, --initial-tab         make tabs line up (if needed)
+  -Z, --null                print 0 byte after FILE name
+
+Context control:
+  -B, --before-context=NUM  print NUM lines of leading context
+  -A, --after-context=NUM   print NUM lines of trailing context
+  -C, --context=NUM         print NUM lines of output context
+  -NUM                      same as --context=NUM
+      --color[=WHEN],
+      --colour[=WHEN]       use markers to highlight the matching strings;
+                            WHEN is 'always', 'never', or 'auto'
+  -U, --binary              do not strip CR characters at EOL (MSDOS/Windows)
+  -u, --unix-byte-offsets   report offsets as if CRs were not there
+                            (MSDOS/Windows)
+
+'egrep' means 'grep -E'.  'fgrep' means 'grep -F'.
+Direct invocation as either 'egrep' or 'fgrep' is deprecated.
+When FILE is -, read standard input.  With no FILE, read . if a command-line
+-r is given, - otherwise.  If fewer than two FILEs are given, assume -h.
+Exit status is 0 if any line is selected, 1 otherwise;
+if any error occurs and -q is not given, the exit status is 2.
+
+Report bugs to: bug-grep@gnu.org
+GNU grep home page: <http://www.gnu.org/software/grep/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+takkaakb@VTA003L:~/akbar/shellscript$ grep -i "akbar" 
+
+
+^C
+takkaakb@VTA003L:~/akbar/shellscript$ grep -i "akbar" *.c
+grep: *.c: No such file or directory
+takkaakb@VTA003L:~/akbar/shellscript$ grep -i "akbar" 
+1.sh                     comands.sh               python/
+arithmaticoperations.sh  datetime.sh              readonlyvar.sh
+arithoperations2.sh      factorial.sh             var1.sh
+arrays.sh                fibnaciseries.sh         var2.sh
+base3.sh                 fileoper.sh              variableusage.sh
+basic2.sh                forloop2.sh              while2.sh
+basic3.sh                forloop.sh               whilelop.sh
+basic.sh                 loops.sh                 
+case.sh                  primenumber.sh           
+takkaakb@VTA003L:~/akbar/shellscript$ grep -i "akbar" *.sh
+arrays.sh:arr=(akbar saleem takkasila)
+readonlyvar.sh:name="akbar Saleem"
+takkaakb@VTA003L:~/akbar/shellscript$ grep -i "akbar" *.sh > grepfile.txt
+takkaakb@VTA003L:~/akbar/shellscript$ cat grepfile.txt 
+arrays.sh:arr=(akbar saleem takkasila)
+readonlyvar.sh:name="akbar Saleem"
+takkaakb@VTA003L:~/akbar/shellscript$ grep -r "akbar" *.sh > grepfile.txt
+takkaakb@VTA003L:~/akbar/shellscript$ cat grepfile.txt 
+arrays.sh:arr=(akbar saleem takkasila)
+readonlyvar.sh:name="akbar Saleem"
+takkaakb@VTA003L:~/akbar/shellscript$ grep -w "echo" *.sh > grepfile.txt
+takkaakb@VTA003L:~/akbar/shellscript$ cat grepfile.txt 
+1.sh:  echo $path_var
+1.sh:echo $!
+1.sh:echo "my path is $var"
+arithmaticoperations.sh:echo "a + b : $val"
+arithmaticoperations.sh:echo enter a, b values
+arithmaticoperations.sh:echo sum: `expr $a + $b`
+arithmaticoperations.sh:echo s: $s
+arithmaticoperations.sh:echo mul = $(( a*b ))
+arithmaticoperations.sh:echo mul2 : $mul
+arithmaticoperations.sh:echo div  $(( a/b ))
+arithoperations2.sh:echo enter values for arithmatic operations
+arithoperations2.sh:echo a=$a b=$b
+arithoperations2.sh:echo sum of a+b is:
+arithoperations2.sh:echo `expr $a + $b`
+arithoperations2.sh:echo difference of a, b is :
+arithoperations2.sh:   echo `expr $a - $b`
+arithoperations2.sh:   echo `expr $b - $a`
+arithoperations2.sh:echo multiplication of a, b is
+arithoperations2.sh:echo `expr $a \* $b`
+arithoperations2.sh:echo division of a, b is
+arithoperations2.sh:echo `expr $a \/ $b`
+arithoperations2.sh:echo modulo division of a, b is
+arithoperations2.sh:echo `expr $a \% $b`
+arrays.sh:echo ${arr[*]}
+arrays.sh:echo ${#arr[*]}
+arrays.sh:echo ${arr[0]}
+arrays.sh:echo ${arr[1]:2}
+arrays.sh:echo ${arr[@]:1:2}
+arrays.sh:echo ${arr[@]/*[em]*/}
+base3.sh:echo "enter name"
+base3.sh:echo "name is $name"
+base3.sh:echo "enter name"
+basic2.sh:echo "enter data"
+basic2.sh:echo "entered data is $data"
+basic3.sh:echo name
+basic3.sh:echo $name
+basic3.sh:echo $name
+basic.sh:echo "what's your name?"
+basic.sh:echo "Hello,$PERSON"
+case.sh:  car) echo $1 for rent;;
+case.sh:  jeep) echo $1 for rent;;
+case.sh:  *) echo dont have to give rent;;
+comands.sh:echo pwd output
+comands.sh:echo ls output
+comands.sh:echo ls la  output
+comands.sh:echo wc output
+datetime.sh:echo "date is $DATE"
+factorial.sh:echo enter input number to find factorial
+factorial.sh:echo $fact
+fibnaciseries.sh:echo enter number for fibnaci
+fibnaciseries.sh:  echo $num1
+fileoper.sh:echo enter filename
+fileoper.sh:echo $file
+fileoper.sh:echo hello world>$file
+fileoper.sh:echo sdafkjasdflasdfhjsdfsklf >$file
+fileoper.sh:echo apending dtat to file >>$file
+fileoper.sh:echo while loop for data printing
+fileoper.sh:  echo $line
+forloop2.sh:echo enter range
+forloop2.sh:  echo $i
+forloop.sh:echo enter input range
+forloop.sh:      echo $i
+forloop.sh:      echo sqrt($n)
+forloop.sh:echo 2nd for loop
+forloop.sh:echo $i
+loops.sh:echo forloop
+loops.sh:  echo $i
+loops.sh:echo whilelopp
+loops.sh:  echo $i
+primenumber.sh:echo enter number for range of prime numbers
+primenumber.sh:    echo $i
+readonlyvar.sh:echo enter name
+readonlyvar.sh:echo  name is $name
+readonlyvar.sh:echo name2 is $name2
+readonlyvar.sh:echo name2 is $name2
+readonlyvar.sh:echo $$
+readonlyvar.sh:echo $0
+var1.sh:echo variable 1
+var1.sh:echo infile1 $var1
+var1.sh:echo infile1 var2 is global variable $var2
+var2.sh:echo variable 2
+var2.sh:echo infile1 $var2
+var2.sh:echo infile2 var1 $var1
+variableusage.sh:echo variable calling
+variableusage.sh:echo $file
+while2.sh:echo $n $i
+while2.sh:  echo $i
+whilelop.sh:echo enter range
+whilelop.sh:  echo $i
+takkaakb@VTA003L:~/akbar/shellscript$ cp --help 
+Usage: cp [OPTION]... [-T] SOURCE DEST
+  or:  cp [OPTION]... SOURCE... DIRECTORY
+  or:  cp [OPTION]... -t DIRECTORY SOURCE...
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --archive                same as -dR --preserve=all
+      --attributes-only        don't copy the file data, just the attributes
+      --backup[=CONTROL]       make a backup of each existing destination file
+  -b                           like --backup but does not accept an argument
+      --copy-contents          copy contents of special files when recursive
+  -d                           same as --no-dereference --preserve=links
+  -f, --force                  if an existing destination file cannot be
+                                 opened, remove it and try again (this option
+                                 is ignored when the -n option is also used)
+  -i, --interactive            prompt before overwrite (overrides a previous -n
+                                  option)
+  -H                           follow command-line symbolic links in SOURCE
+  -l, --link                   hard link files instead of copying
+  -L, --dereference            always follow symbolic links in SOURCE
+  -n, --no-clobber             do not overwrite an existing file (overrides
+                                 a previous -i option)
+  -P, --no-dereference         never follow symbolic links in SOURCE
+  -p                           same as --preserve=mode,ownership,timestamps
+      --preserve[=ATTR_LIST]   preserve the specified attributes (default:
+                                 mode,ownership,timestamps), if possible
+                                 additional attributes: context, links, xattr,
+                                 all
+      --no-preserve=ATTR_LIST  don't preserve the specified attributes
+      --parents                use full source file name under DIRECTORY
+  -R, -r, --recursive          copy directories recursively
+      --reflink[=WHEN]         control clone/CoW copies. See below
+      --remove-destination     remove each existing destination file before
+                                 attempting to open it (contrast with --force)
+      --sparse=WHEN            control creation of sparse files. See below
+      --strip-trailing-slashes  remove any trailing slashes from each SOURCE
+                                 argument
+  -s, --symbolic-link          make symbolic links instead of copying
+  -S, --suffix=SUFFIX          override the usual backup suffix
+  -t, --target-directory=DIRECTORY  copy all SOURCE arguments into DIRECTORY
+  -T, --no-target-directory    treat DEST as a normal file
+  -u, --update                 copy only when the SOURCE file is newer
+                                 than the destination file or when the
+                                 destination file is missing
+  -v, --verbose                explain what is being done
+  -x, --one-file-system        stay on this file system
+  -Z                           set SELinux security context of destination
+                                 file to default type
+      --context[=CTX]          like -Z, or if CTX is specified then set the
+                                 SELinux or SMACK security context to CTX
+      --help     display this help and exit
+      --version  output version information and exit
+
+By default, sparse SOURCE files are detected by a crude heuristic and the
+corresponding DEST file is made sparse as well.  That is the behavior
+selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST
+file whenever the SOURCE file contains a long enough sequence of zero bytes.
+Use --sparse=never to inhibit creation of sparse files.
+
+When --reflink[=always] is specified, perform a lightweight copy, where the
+data blocks are copied only when modified.  If this is not possible the copy
+fails, or if --reflink=auto is specified, fall back to a standard copy.
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+As a special case, cp makes a backup of SOURCE when the force and backup
+options are given and SOURCE and DEST are the same name for an existing,
+regular file.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/cp>
+or available locally via: info '(coreutils) cp invocation'
+takkaakb@VTA003L:~/akbar/shellscript$ vimdiff 1.sh bas
+base3.sh   basic2.sh  basic3.sh  basic.sh   
+takkaakb@VTA003L:~/akbar/shellscript$ vimdiff 1.sh base3.sh 
+2 files to edit
+takkaakb@VTA003L:~/akbar/shellscript$ vimdiff *.sh
+24 files to edit
+takkaakb@VTA003L:~/akbar/shellscript$ man fdisk 
+takkaakb@VTA003L:~/akbar/shellscript$ fdisk -v
+fdisk from util-linux 2.27.1
+takkaakb@VTA003L:~/akbar/shellscript$ fdisk --help
+
+Usage:
+ fdisk [options] <disk>      change partition table
+ fdisk [options] -l [<disk>] list partition table(s)
+
+Display or manipulate a disk partition table.
+
+Options:
+ -b, --sector-size <size>      physical and logical sector size
+ -B, --protect-boot            don't erase bootbits when create a new label
+ -c, --compatibility[=<mode>]  mode is 'dos' or 'nondos' (default)
+ -L, --color[=<when>]          colorize output (auto, always or never)
+                                 colors are enabled by default
+ -l, --list                    display partitions end exit
+ -o, --output <list>           output columns
+ -t, --type <type>             recognize specified partition table type only
+ -u, --units[=<unit>]          display units: 'cylinders' or 'sectors' (default)
+ -s, --getsz                   display device size in 512-byte sectors [DEPRECATED]
+     --bytes                   print SIZE in bytes rather than in human readable format
+
+ -C, --cylinders <number>      specify the number of cylinders
+ -H, --heads <number>          specify the number of heads
+ -S, --sectors <number>        specify the number of sectors per track
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+Available columns (for -o):
+ gpt: Device Start End Sectors Size Type Type-UUID Attrs Name UUID
+ dos: Device Start End Sectors Cylinders Size Type Id Attrs Boot End-C/H/S Start-C/H/S
+ bsd: Slice Start End Sectors Cylinders Size Type Bsize Cpg Fsize
+ sgi: Device Start End Sectors Cylinders Size Type Id Attrs
+ sun: Device Start End Sectors Cylinders Size Type Id Flags
+
+For more details see fdisk(8).
+takkaakb@VTA003L:~/akbar/shellscript$ mkfs --help
+
+Usage:
+ mkfs [options] [-t <type>] [fs-options] <device> [<size>]
+
+Make a Linux filesystem.
+
+Options:
+ -t, --type=<type>  filesystem type; when unspecified, ext2 is used
+     fs-options     parameters for the real filesystem builder
+     <device>       path to the device to be used
+     <size>         number of blocks to be used on the device
+ -V, --verbose      explain what is being done;
+                      specifying -V more than once will cause a dry-run
+ -V, --version      display version information and exit;
+                      -V as --version must be the only option
+ -h, --help         display this help text and exit
+
+For more details see mkfs(8).
+takkaakb@VTA003L:~/akbar/shellscript$ mkfs -v
+Usage: mkfs.ext2 [-c|-l filename] [-b block-size] [-C cluster-size]
+	[-i bytes-per-inode] [-I inode-size] [-J journal-options]
+	[-G flex-group-size] [-N number-of-inodes]
+	[-m reserved-blocks-percentage] [-o creator-os]
+	[-g blocks-per-group] [-L volume-label] [-M last-mounted-directory]
+	[-O feature[,...]] [-r fs-revision] [-E extended-option[,...]]
+	[-t fs-type] [-T usage-type ] [-U UUID] [-jnqvDFKSV] device [blocks-count]
+takkaakb@VTA003L:~/akbar/shellscript$ mkfs -V
+mkfs from util-linux 2.27.1
+takkaakb@VTA003L:~/akbar/shellscript$ 
+///////////////////////////////////////////////////////////////////////////
+takkaakb@VTA003L:~/akbar$ grep -r "akbar" > grepfile.txt
+grep: input file ‘grepfile.txt’ is also the output
+^C
+takkaakb@VTA003L:~/akbar$ cat grepfile.txt 
+Binary file myresume.pdf matches
+a/Git-Commands/.git/logs/HEAD:0000000000000000000000000000000000000000 b4de862c03f0be75c3b5ed1a9ef8458b08c90cc3 akbar saleem t <akbarsaleem402@gmail.com> 1552966436 +0530	clone: from https://github.com/joshnh/Git-Commands.git
+a/Git-Commands/.git/logs/refs/heads/master:0000000000000000000000000000000000000000 b4de862c03f0be75c3b5ed1a9ef8458b08c90cc3 akbar saleem t <akbarsaleem402@gmail.com> 1552966436 +0530	clone: from https://github.com/joshnh/Git-Commands.git
+a/Git-Commands/.git/logs/refs/remotes/origin/HEAD:0000000000000000000000000000000000000000 b4de862c03f0be75c3b5ed1a9ef8458b08c90cc3 akbar saleem t <akbarsaleem402@gmail.com> 1552966436 +0530	clone: from https://github.com/joshnh/Git-Commands.git
+a/a/.git/config:	url = https://github.com/akbarsaleemt/a.git
+a/.git/config:	url = https://github.com/akbarsaleemt/a.git
+a/.git/logs/HEAD:0000000000000000000000000000000000000000 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910747 +0530	commit (initial): hello
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910764 +0530	checkout: moving from master to new
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910933 +0530	checkout: moving from new to master
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910970 +0530	checkout: moving from master to new
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552967111 +0530	checkout: moving from new to new2
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967145 +0530	commit: file is empty
+a/.git/logs/HEAD:1f9452753d91613dc903467ab1cdfc84f6845c62 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552967632 +0530	checkout: moving from new2 to master
+a/.git/logs/HEAD:d9998fc4b790b6a11f25955b494dcc293bec8e7f 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967643 +0530	merge new2: Fast-forward
+a/.git/logs/refs/heads/new:0000000000000000000000000000000000000000 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910756 +0530	branch: Created from master
+a/.git/logs/refs/heads/master:0000000000000000000000000000000000000000 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910747 +0530	commit (initial): hello
+a/.git/logs/refs/heads/master:d9998fc4b790b6a11f25955b494dcc293bec8e7f 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967643 +0530	merge new2: Fast-forward
+a/.git/logs/refs/heads/new2:0000000000000000000000000000000000000000 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552967111 +0530	branch: Created from HEAD
+a/.git/logs/refs/heads/new2:d9998fc4b790b6a11f25955b494dcc293bec8e7f 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967145 +0530	commit: file is empty
+a/.git/logs/refs/remotes/origin/new:0000000000000000000000000000000000000000 d9998fc4b790b6a11f25955b494dcc293bec8e7f akbar saleem t <akbarsaleem402@gmail.com> 1552910814 +0530	update by push
+a/.git/logs/refs/remotes/origin/master:0000000000000000000000000000000000000000 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967670 +0530	update by push
+a/.git/logs/refs/remotes/origin/new2:0000000000000000000000000000000000000000 1f9452753d91613dc903467ab1cdfc84f6845c62 akbar saleem t <akbarsaleem402@gmail.com> 1552967207 +0530	update by push
+Binary file programs/interview/new/.2darray.c.swp matches
+Binary file programs/interview/.circulalist.c.swp matches
+Binary file programs/interview/xilinx/debug matches
+Binary file programs/interview/xilinx/btwsmultp matches
+programs/interview/qualcomm/nullpointer.c:  char name[]="akbar saleem";
+programs/interview/qualcomm/charpointr.c: // char *ptr="akbar";
+programs/c/drivers/.tmp_versions/chardrivr.mod:/home/lomatash/akbar/programs/c/drivers/chardrivr.ko
+programs/c/drivers/.tmp_versions/chardrivr.mod:/home/lomatash/akbar/programs/c/drivers/chardrivr.o
+programs/c/drivers/.chardrivr.o.cmd:cmd_/home/lomatash/akbar/programs/c/drivers/chardrivr.o := gcc -Wp,-MD,/home/lomatash/akbar/programs/c/drivers/.chardrivr.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/5/include  -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -Iubuntu/include  -D__KERNEL__ -fno-pie -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -fno-pie -no-pie -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -DCONFIG_X86_X32_ABI
+programs/c/cscope.out:cscope 15 $HOME/akbar/programs/c               0000230571
+programs/c/fileop.c:  f=freopen("akbar.txt","r+",stdin);
+Binary file programs/c/.thread1.c.swp matches
+Binary file programs/c/recursion/dbg matches
+programs/threads/threadssignal.c:    fp=fopen("akbar.txt","r");
+Binary file programs/threads/sigthear matches
+Binary file programs/linux/sharedmemory/4/.server.c.swp matches
+Binary file programs/linux/sharedmemory/3/.server.c.swp matches
+Binary file programs/linux/biocals/a.out matches
+shellscript/readonlyvar.sh:name="akbar Saleem"
+shellscript/arrays.sh:arr=(akbar saleem takkasila)
+fileoperations.c:  f=freopen("akbar.txt","r+",stdin);
+\takkaakb@VTA003L:~/akbar/shellscript$ grep -n "$" *.sh > grepfile.txt
+takkaakb@VTA003L:~/akbar/shellscript$ cat grepfile.txt 
+akkaakb@VTA003L:~/akbar/shellscript$ grep -v "akbar" *.sh > grepfile.txt
+takkaakb@VTA003L:~/akbar/shellscript$ cat grepfile.txt 
+1.sh:function fun()
+1.sh:{
+1.sh:
+1.sh:  path_var=($PWD)
+1.sh:  echo $path_var
+1.sh:#  
+
