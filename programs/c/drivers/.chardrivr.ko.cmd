@@ -1,0 +1,1 @@
+cmd_/home/lomatash/akbar/programs/c/drivers/chardrivr.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/lomatash/akbar/programs/c/drivers/chardrivr.ko /home/lomatash/akbar/programs/c/drivers/chardrivr.o /home/lomatash/akbar/programs/c/drivers/chardrivr.mod.o ;  true

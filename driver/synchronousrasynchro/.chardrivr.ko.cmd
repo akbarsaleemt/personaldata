@@ -1,0 +1,1 @@
+cmd_/home/takkaakb/akbar/driver/synchronousrasynchro/chardrivr.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/takkaakb/akbar/driver/synchronousrasynchro/chardrivr.ko /home/takkaakb/akbar/driver/synchronousrasynchro/chardrivr.o /home/takkaakb/akbar/driver/synchronousrasynchro/chardrivr.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_/home/takkaakb/akbar/driver/chardriver/simpchar.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/takkaakb/akbar/driver/chardriver/simpchar.ko /home/takkaakb/akbar/driver/chardriver/simpchar.o /home/takkaakb/akbar/driver/chardriver/simpchar.mod.o ;  true

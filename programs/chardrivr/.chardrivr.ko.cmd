@@ -1,0 +1,1 @@
+cmd_/home/takkaakb/akbar/driver/chardrivr/chardrivr.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/takkaakb/akbar/driver/chardrivr/chardrivr.ko /home/takkaakb/akbar/driver/chardrivr/chardrivr.o /home/takkaakb/akbar/driver/chardrivr/chardrivr.mod.o ;  true

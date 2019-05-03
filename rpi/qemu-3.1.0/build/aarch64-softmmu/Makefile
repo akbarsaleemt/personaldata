@@ -1,0 +1,1 @@
+/home/takkaakb/akbar/rpi/qemu-3.1.0/Makefile.target
